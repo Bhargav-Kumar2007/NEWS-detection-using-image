@@ -1,0 +1,59 @@
+{
+  "split": "val",
+  "n_samples": 137,
+  "checkpoint": "D:\\PROJECTS\\NNDL\\fakeddit_cnn\\fakeddit_cnn\\outputs\\recovery\\subset_resnet18\\checkpoints\\best.pt",
+  "arch": "resnet18",
+  "evaluated_at": "2026-11-05T20:48:35",
+  "metrics": {
+    "positive_class": "fake",
+    "accuracy": 0.9197080291970803,
+    "precision": 1.0,
+    "recall": 0.26666666666666666,
+    "f1": 0.42105263157894735,
+    "macro_f1": 0.6889576883384934,
+    "roc_auc": 0.6726775956284152
+  },
+  "confusion_matrix": {
+    "labels": [
+      "fake",
+      "real"
+    ],
+    "matrix": [
+      [
+        4,
+        11
+      ],
+      [
+        0,
+        122
+      ]
+    ]
+  },
+  "classification_report": {
+    "fake": {
+      "precision": 1.0,
+      "recall": 0.26666666666666666,
+      "f1-score": 0.42105263157894735,
+      "support": 15.0
+    },
+    "real": {
+      "precision": 0.9172932330827067,
+      "recall": 1.0,
+      "f1-score": 0.9568627450980393,
+      "support": 122.0
+    },
+    "accuracy": 0.9197080291970803,
+    "macro avg": {
+      "precision": 0.9586466165413534,
+      "recall": 0.6333333333333333,
+      "f1-score": 0.6889576883384934,
+      "support": 137.0
+    },
+    "weighted avg": {
+      "precision": 0.9263487185116074,
+      "recall": 0.9197080291970803,
+      "f1-score": 0.8981974042017883,
+      "support": 137.0
+    }
+  }
+}

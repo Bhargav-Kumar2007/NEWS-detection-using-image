@@ -1,0 +1,52 @@
+20:45:19 | INFO | Device: cuda (NVIDIA GeForce RTX 4050 Laptop GPU) | AMP: True | mode: subset | model: resnet18
+20:45:19 | INFO | Train samples: 1157 | Val samples: 137
+20:45:20 | INFO | Trainable parameters: 11,177,538
+20:45:20 | INFO | Class weights (fake, real): [4.317200183868408, 0.565500020980835]
+20:45:42 | INFO | Epoch 1/20 | train loss 0.8174 acc 0.6335 | val loss 0.6762 acc 0.7226 f1 0.0000 auc 0.4738  <- best
+20:45:50 | INFO | Epoch 2/20 | train loss 0.5676 acc 0.7831 | val loss 0.5906 acc 0.8467 f1 0.0870 auc 0.5046  <- best
+20:45:58 | INFO | Epoch 3/20 | train loss 0.4031 acc 0.8721 | val loss 0.6146 acc 0.7810 f1 0.2500 auc 0.6325  <- best
+20:46:06 | INFO | Epoch 4/20 | train loss 0.3071 acc 0.9041 | val loss 1.0167 acc 0.5912 f1 0.2432 auc 0.6792
+20:46:14 | INFO | Epoch 5/20 | train loss 0.2701 acc 0.9334 | val loss 0.6709 acc 0.8175 f1 0.2424 auc 0.6508
+20:46:22 | INFO | Epoch 6/20 | train loss 0.1362 acc 0.9689 | val loss 0.7141 acc 0.8686 f1 0.2500 auc 0.5825
+20:46:31 | INFO | Epoch 7/20 | train loss 0.1381 acc 0.9715 | val loss 0.6418 acc 0.8394 f1 0.3125 auc 0.6956  <- best
+20:46:39 | INFO | Epoch 8/20 | train loss 0.1094 acc 0.9827 | val loss 0.8380 acc 0.8759 f1 0.1905 auc 0.6413
+20:46:49 | INFO | Epoch 9/20 | train loss 0.0403 acc 0.9888 | val loss 0.6211 acc 0.8832 f1 0.2000 auc 0.6891
+20:46:58 | INFO | Epoch 10/20 | train loss 0.0580 acc 0.9896 | val loss 0.7915 acc 0.9197 f1 0.4211 auc 0.6727  <- best
+20:47:07 | INFO | Epoch 11/20 | train loss 0.0290 acc 0.9939 | val loss 0.6862 acc 0.8832 f1 0.2000 auc 0.6918
+20:47:16 | INFO | Epoch 12/20 | train loss 0.0121 acc 0.9974 | val loss 0.6878 acc 0.8978 f1 0.2222 auc 0.7120
+20:47:25 | INFO | Epoch 13/20 | train loss 0.0084 acc 0.9983 | val loss 0.6074 acc 0.8759 f1 0.2609 auc 0.7383
+20:47:35 | INFO | Epoch 14/20 | train loss 0.0265 acc 0.9965 | val loss 0.5786 acc 0.8905 f1 0.2857 auc 0.7486
+20:47:44 | INFO | Epoch 15/20 | train loss 0.0049 acc 0.9991 | val loss 0.6311 acc 0.8832 f1 0.2000 auc 0.7402
+20:47:53 | INFO | Epoch 16/20 | train loss 0.0031 acc 0.9991 | val loss 0.6658 acc 0.8905 f1 0.2105 auc 0.7497
+20:48:03 | INFO | Epoch 17/20 | train loss 0.0108 acc 0.9965 | val loss 0.6777 acc 0.8978 f1 0.2222 auc 0.7536
+20:48:13 | INFO | Epoch 18/20 | train loss 0.0042 acc 0.9991 | val loss 0.6328 acc 0.8832 f1 0.2000 auc 0.7601
+20:48:23 | INFO | Epoch 19/20 | train loss 0.0047 acc 0.9991 | val loss 0.6867 acc 0.8978 f1 0.2222 auc 0.7519
+20:48:33 | INFO | Epoch 20/20 | train loss 0.0207 acc 0.9983 | val loss 0.6011 acc 0.8759 f1 0.1905 auc 0.7596
+20:48:34 | INFO | Training finished in 3.2 min. Best epoch: 10 (val_f1 = 0.4211). Best checkpoint: D:\PROJECTS\NNDL\fakeddit_cnn\fakeddit_cnn\outputs\recovery\subset_resnet18\checkpoints\best.pt
+20:48:34 | INFO | Evaluating best.pt on 'val' split (137 samples) on cuda (NVIDIA GeForce RTX 4050 Laptop GPU)
+20:48:35 | INFO | [val] acc=0.9197 precision=1.0000 recall=0.2667 f1=0.4211 roc_auc=0.6727 (positive class: fake)
+20:48:35 | INFO | 
+              precision    recall  f1-score   support
+
+        fake     1.0000    0.2667    0.4211        15
+        real     0.9173    1.0000    0.9569       122
+
+    accuracy                         0.9197       137
+   macro avg     0.9586    0.6333    0.6890       137
+weighted avg     0.9263    0.9197    0.8982       137
+
+20:48:35 | INFO | Saved metrics to D:\PROJECTS\NNDL\fakeddit_cnn\fakeddit_cnn\outputs\recovery\subset_resnet18\metrics and plots to D:\PROJECTS\NNDL\fakeddit_cnn\fakeddit_cnn\outputs\recovery\subset_resnet18\plots
+20:48:35 | INFO | Evaluating best.pt on 'test' split (142 samples) on cuda (NVIDIA GeForce RTX 4050 Laptop GPU)
+20:48:38 | INFO | [test] acc=0.9014 precision=1.0000 recall=0.2632 f1=0.4167 roc_auc=0.7617 (positive class: fake)
+20:48:38 | INFO | 
+              precision    recall  f1-score   support
+
+        fake     1.0000    0.2632    0.4167        19
+        real     0.8978    1.0000    0.9462       123
+
+    accuracy                         0.9014       142
+   macro avg     0.9489    0.6316    0.6814       142
+weighted avg     0.9115    0.9014    0.8753       142
+
+20:48:38 | INFO | Saved metrics to D:\PROJECTS\NNDL\fakeddit_cnn\fakeddit_cnn\outputs\recovery\subset_resnet18\metrics and plots to D:\PROJECTS\NNDL\fakeddit_cnn\fakeddit_cnn\outputs\recovery\subset_resnet18\plots
+20:48:38 | INFO | All outputs saved in D:\PROJECTS\NNDL\fakeddit_cnn\fakeddit_cnn\outputs\recovery\subset_resnet18

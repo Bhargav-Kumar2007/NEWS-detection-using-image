@@ -1,0 +1,9 @@
+{
+  "best_epoch": 10,
+  "monitor": "val_f1",
+  "best_monitor_value": 0.42105263157894735,
+  "epochs_run": 20,
+  "training_seconds": 194.39355039596558,
+  "device": "cuda (NVIDIA GeForce RTX 4050 Laptop GPU)",
+  "best_checkpoint": "D:\\PROJECTS\\NNDL\\fakeddit_cnn\\fakeddit_cnn\\outputs\\recovery\\subset_resnet18\\checkpoints\\best.pt"
+}

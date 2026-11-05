@@ -12,11 +12,9 @@ __pycache__/
 # Data (downloaded automatically, can be many GB)
 data/
 
-# Training outputs (checkpoints, metrics, plots, logs)
-outputs/
-
 # Misc
 *.log
+!outputs/**/*.log
 *.tmp
 .DS_Store
 Thumbs.db
