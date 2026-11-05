@@ -1,0 +1,22 @@
+# Environments
+.venv/
+venv/
+env/
+.managed-python/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.idea/
+.vscode/
+
+# Data (downloaded automatically, can be many GB)
+data/
+
+# Training outputs (checkpoints, metrics, plots, logs)
+outputs/
+
+# Misc
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

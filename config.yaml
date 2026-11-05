@@ -1,0 +1,62 @@
+# ---------------------------------------------------------------------------
+# Fakeddit CNN fake-news (2-way) image classifier - configuration
+# All relative paths are resolved against the project root (this folder).
+# Most values can be overridden on the command line (see README).
+# ---------------------------------------------------------------------------
+seed: 42
+device: auto            # auto | cpu | cuda | cuda:0 | mps
+
+paths:
+  raw_dir: data/raw              # Fakeddit .tsv files
+  images_dir: data/images        # downloaded + resized images ({id}.jpg)
+  processed_dir: data/processed  # manifests (train/val/test csv) per mode
+  output_dir: outputs            # checkpoints, metrics, plots, logs
+
+data:
+  # Official Fakeddit data folder (Google Drive link listed in the Fakeddit README).
+  # If this ever changes, update it or place the .tsv files in paths.raw_dir manually.
+  gdrive_folder_url: "https://drive.google.com/drive/folders/1jU7qgDqU1je9Y0PMKJ_f31yXRo5uWGFm"
+
+  # "multimodal" -> multimodal_train/validate/test_public.tsv (only posts that have images)
+  # "all"        -> all_train/validate/test_public.tsv        (images are filtered by hasImage)
+  source: multimodal
+  label_column: 2_way_label      # official 2-way label: 0 = fake, 1 = real
+
+  # Dataset size.  Default = small subset for quick testing.
+  # Set use_full_dataset: true (or pass --full) to use every official sample.
+  use_full_dataset: false
+  subset:
+    train: 4500
+    val: 600
+    test: 900
+
+  image_size: 224                # network input size
+  stored_max_side: 320           # downloaded images are resized so max side <= this
+  min_side: 64                   # drop images smaller than this (placeholders / removed images)
+  download_workers: 32           # parallel download threads
+  download_timeout: 10           # seconds per image
+  num_workers: auto              # DataLoader workers (auto = 0 on Windows, up to 4 elsewhere)
+
+model:
+  arch: resnet18                 # resnet18 | mobilenet_v2
+  pretrained: true               # ImageNet weights (downloaded by torchvision on first use)
+  dropout: 0.2
+  freeze_backbone: false         # true = train only the classification head (faster on CPU)
+
+train:
+  epochs: 20
+  batch_size: 32
+  lr: 0.0003
+  weight_decay: 0.0001
+  scheduler: cosine              # cosine | plateau | none
+  class_weights: true            # weight loss by inverse class frequency
+  label_smoothing: 0.0
+  grad_clip: 1.0                 # 0 disables
+  amp: true                      # mixed precision (only used on CUDA)
+  monitor: val_f1                # val_f1 | val_acc | val_auc | val_loss (best checkpoint criterion)
+  early_stopping_patience: 0     # 0 disables
+  evaluate_after: true           # run test-set evaluation after training
+
+eval:
+  positive_class: fake           # class treated as "positive" for precision/recall/F1/ROC-AUC (fake | real)
+  batch_size: 64

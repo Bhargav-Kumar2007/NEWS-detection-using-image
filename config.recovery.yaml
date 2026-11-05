@@ -1,0 +1,48 @@
+# ReCOVery image classification run.
+seed: 42
+device: auto
+
+paths:
+  raw_dir: data/raw
+  images_dir: data/images/recovery
+  processed_dir: data/processed_recovery
+  output_dir: outputs/recovery
+
+data:
+  source: multimodal
+  label_column: reliability
+  use_full_dataset: false
+  subset:
+    train: 0
+    val: 0
+    test: 0
+  image_size: 224
+  stored_max_side: 320
+  min_side: 64
+  download_workers: 32
+  download_timeout: 15
+  num_workers: auto
+
+model:
+  arch: resnet18
+  pretrained: true
+  dropout: 0.2
+  freeze_backbone: false
+
+train:
+  epochs: 20
+  batch_size: 32
+  lr: 0.0003
+  weight_decay: 0.0001
+  scheduler: cosine
+  class_weights: true
+  label_smoothing: 0.0
+  grad_clip: 1.0
+  amp: true
+  monitor: val_f1
+  early_stopping_patience: 0
+  evaluate_after: true
+
+eval:
+  positive_class: fake
+  batch_size: 64
